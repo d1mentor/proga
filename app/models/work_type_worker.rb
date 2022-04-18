@@ -1,0 +1,2 @@
+class WorkTypeWorker < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_type: 1
+  worker: 1
+  salary: 1.5
+
+two:
+  work_type: 1
+  worker: 1
+  salary: 1.5
