@@ -1,0 +1,17 @@
+<h1>Добавление нового обьекта</h1>
+
+<%= form_for @location do |f| %>
+
+	<%= f.label :name, 'Название обьекта' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :adress, 'Адрес обьекта' %>
+	<%= f.text_field :adress %>
+	<br>
+	<%= f.label :customer, 'Контакты заказчика' %>
+	<%= f.text_field :customer %>
+	<br>
+
+	<%= f.submit 'Добавить' %>
+
+<% end %>

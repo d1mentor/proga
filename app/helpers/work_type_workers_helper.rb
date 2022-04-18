@@ -1,0 +1,2 @@
+module WorkTypeWorkersHelper
+end

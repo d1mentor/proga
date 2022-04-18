@@ -1,0 +1,14 @@
+<h1>Обьекты</h1>
+
+<%= link_to "Добавить новый обьект", new_location_path %>
+
+<% @locations.each do |location| %>
+	<h1><%= location.id %></h1>
+	<br>
+	<%= location.name %>
+	<br>
+	<%= location.adress %>
+	<br>
+	<%= location.customer %>
+	<br>	
+<% end %>

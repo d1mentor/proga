@@ -1,62 +1,13 @@
 Rails.application.routes.draw do
-  get 'work_type_worker/show'
-  get 'work_type_worker/index'
-  get 'work_type_worker/new'
-  get 'work_type_worker/create'
-  get 'work_type_worker/edit'
-  get 'work_type_worker/update'
-  get 'work_type_worker/delete'
-  get 'work_type_worker/destroy'
-  get 'worker_location/show'
-  get 'worker_location/index'
-  get 'worker_location/new'
-  get 'worker_location/create'
-  get 'worker_location/edit'
-  get 'worker_location/update'
-  get 'worker_location/delete'
-  get 'worker_location/destroy'
-  get 'work_type_location/show'
-  get 'work_type_location/index'
-  get 'work_type_location/new'
-  get 'work_type_location/create'
-  get 'work_type_location/edit'
-  get 'work_type_location/update'
-  get 'work_type_location/delete'
-  get 'work_type_location/destroy'
-  get 'work_type/show'
-  get 'work_type/index'
-  get 'work_type/new'
-  get 'work_type/create'
-  get 'work_type/edit'
-  get 'work_type/update'
-  get 'work_type/delete'
-  get 'work_type/destroy'
-  get 'worker/show'
-  get 'worker/index'
-  get 'worker/new'
-  get 'worker/create'
-  get 'worker/edit'
-  get 'worker/update'
-  get 'worker/delete'
-  get 'worker/destroy'
-  get 'location/show'
-  get 'location/index'
-  get 'location/new'
-  get 'location/create'
-  get 'location/edit'
-  get 'location/update'
-  get 'location/delete'
-  get 'location/destroy'
-  get 'location_controllershow/index'
-  get 'location_controllershow/new'
-  get 'location_controllershow/create'
-  get 'location_controllershow/edit'
-  get 'location_controllershow/update'
-  get 'location_controllershow/delete'
-  get 'location_controllershow/destroy'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    resources :users
+    resources :locations
+    resources :workers
+    resources :work_types
+    resources :work_types_locations
+    resources :workers_locations
+    resources :work_types_workers
+
+    root "locations#index"
 end

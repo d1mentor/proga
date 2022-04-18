@@ -1,4 +1,4 @@
-class WorkTypeWorkerController < ApplicationController
+class WorkerLocationsController < ApplicationController
   def show
   end
 

@@ -1,0 +1,2 @@
+module WorkerLocationsHelper
+end
