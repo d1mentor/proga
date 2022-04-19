@@ -1,2 +1,14 @@
-<h1>WorkType#index</h1>
-<p>Find me in app/views/work_type/index.html.erb</p>
+<h1>Виды работ</h1>
+
+<%= link_to "Добавить новый вид выполняемых работ", new_work_type_path %>
+
+<% @work_types.each do |work_type| %>
+	<h1><%= work_type.id %></h1>
+	<br>
+	<%= work_type.name %>
+	<br>
+	<%= work_type.price %>
+	<br>
+	<%= work_type.dimension %>
+	<br>	
+<% end %>

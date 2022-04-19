@@ -1,12 +1,8 @@
+<h1>Обьекты</h1>
 
 <br>
 <%= link_to "Добавить новый обьект", new_location_path %>
 <br>
-<%= link_to "Добавить нового работника", new_worker_path %>
-<br>
-<%= link_to "Просмотреть всех работников", workers_path %>
-
-<h1>Обьекты</h1>
 
 <% @locations.each do |location| %>
 	<h1><%= location.id %></h1>
