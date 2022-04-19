@@ -11,7 +11,10 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
     <%= current_user.email %>
+    <% end %>
+    <%= link_to "Главная", root_path %>
     <%= yield %>
   </body>
 </html>

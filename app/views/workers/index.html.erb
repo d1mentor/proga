@@ -1,2 +1,14 @@
-<h1>Worker#index</h1>
-<p>Find me in app/views/worker/index.html.erb</p>
+<h1>Работники</h1>
+
+<%= link_to "Добавить нового работника", new_location_path %>
+
+<% @workers.each do |worker| %>
+	<h1><%= worker.id %></h1>
+	<br>
+	<%= worker.name %>
+	<br>
+	<%= worker.contacts %>
+	<br>
+	<%= worker.documents %>
+	<br>	
+<% end %>
