@@ -1,2 +1,12 @@
-<h1>WorkerLocation#new</h1>
-<p>Find me in app/views/worker_location/new.html.erb</p>
+<h1>Добавление работника к обьекту</h1>
+
+<%= form_for @worker_location do |f| %>
+
+	<%= f.label :worker, 'id работника' %>
+	<%= f.text_field :worker %>
+	<br>
+	<%= f.hidden_field :location, :value => params[:location] %>
+
+	<%= f.submit 'Добавить' %>
+
+<% end %>

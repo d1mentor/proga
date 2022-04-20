@@ -1,2 +1,8 @@
-<h1>Location#show</h1>
-<p>Find me in app/views/location/show.html.erb</p>
+<h1><%= @location.name %></h1>
+<br>
+<p>Адрес: <%= @location.adress %></p>
+<br>
+<p>Контакты заказчика: <%= @location.customer %></p>
+<br>
+
+<%= link_to "добавить работника к обьекту", new_worker_location_path(location: @location.id) %> 
