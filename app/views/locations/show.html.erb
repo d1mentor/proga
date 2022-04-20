@@ -6,3 +6,13 @@
 <br>
 
 <%= link_to "добавить работника к обьекту", new_worker_location_path(location: @location.id) %> 
+
+<h2>На этом обьекте работают:</h2>
+
+<% @workers.each do |worker| %>
+	<%= worker.id %>
+	<%= worker.name %>
+	<%= worker.contacts %>
+	<%= worker.documents %>
+	<br>
+<% end %>

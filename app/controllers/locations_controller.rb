@@ -2,7 +2,8 @@ class LocationsController < ApplicationController
   
   def show
     @location = Location.find(params[:id])
-    
+    @workers_locations = WorkerLocation.where(location: params[:id]) 
+    @workers = workers_arr
   end
 
   def index
@@ -32,6 +33,20 @@ class LocationsController < ApplicationController
   end
 
   private
+
+  def workers_arr
+
+    workers_ids = []
+    @workers_locations.each do |w_l|
+      workers_ids << w_l.worker
+    end
+
+    workers = []
+    workers_ids.each do |id|
+      workers << Worker.find_by(id: id)
+    end 
+    workers 
+  end
 
   def location_params
     params.require(:location).permit(:name, :adress, :customer)
