@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :workers
     resources :work_types
-    resources :work_types_locations
+    resources :work_type_locations
     resources :worker_locations
     resources :work_types_workers
 

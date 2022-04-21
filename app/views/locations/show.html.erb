@@ -5,14 +5,26 @@
 <p>Контакты заказчика: <%= @location.customer %></p>
 <br>
 
-<%= link_to "добавить работника к обьекту", new_worker_location_path(location: @location.id) %> 
-
 <h2>На этом обьекте работают:</h2>
+
+<%= link_to "добавить работника к обьекту", new_worker_location_path(location: @location.id) %><br> 
 
 <% @workers.each do |worker| %>
 	<%= worker.id %>
 	<%= worker.name %>
 	<%= worker.contacts %>
 	<%= worker.documents %>
+	<br>
+<% end %>
+
+<h2>На этом обьекте выполняются такие виды работ:</h2>
+
+<%= link_to "добавить вид выполняемой работы к обьекту", new_work_type_location_path(location: @location.id) %> <br>
+
+<% @work_types.each do |work_type| %>
+	<%= work_type.id %>
+	<%= work_type.name %>
+	<%= work_type.price %>
+	<%= work_type.dimension %>
 	<br>
 <% end %>

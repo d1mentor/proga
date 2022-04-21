@@ -4,6 +4,8 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @workers_locations = WorkerLocation.where(location: params[:id]) 
     @workers = workers_arr
+    @work_type_locations = WorkTypeLocation.where(location: params[:id]) 
+    @work_types = work_types_arr
   end
 
   def index
@@ -46,6 +48,20 @@ class LocationsController < ApplicationController
       workers << Worker.find_by(id: id)
     end 
     workers 
+  end
+
+  def work_types_arr
+
+    work_types_ids = []
+    @work_type_locations.each do |w_l|
+      work_types_ids << w_l.work_type
+    end
+
+    work_types = []
+    work_types_ids.each do |id|
+      work_types << WorkType.find_by(id: id)
+    end 
+    work_types 
   end
 
   def location_params
