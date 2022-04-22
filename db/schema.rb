@@ -11,16 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_18_164008) do
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "adress"
-    t.string "customer"
-    t.date "work_start"
-    t.date "work_finish"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -31,46 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_164008) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "work_type_locations", force: :cascade do |t|
-    t.integer "work_type"
-    t.integer "location"
-    t.float "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "work_type_workers", force: :cascade do |t|
-    t.integer "work_type"
-    t.integer "worker"
-    t.float "salary"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "work_types", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "worker_locations", force: :cascade do |t|
-    t.integer "worker"
-    t.integer "location"
-    t.float "hours"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "workers", force: :cascade do |t|
-    t.string "name"
-    t.string "contacts"
-    t.string "documents"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

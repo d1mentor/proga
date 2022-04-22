@@ -1,2 +1,0 @@
-class WorkTypeLocation < ApplicationRecord
-end
