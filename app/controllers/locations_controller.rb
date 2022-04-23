@@ -3,12 +3,17 @@ class LocationsController < ApplicationController
   end
 
   def index
+    @locations = Location.all
   end
 
   def new
+    @location = Location.new
   end
 
   def create
+    @location = Location.new(permit_params)
+    @location.save
+    redirect_to(root_path)
   end
 
   def delete
@@ -21,5 +26,11 @@ class LocationsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def permit_params
+    params.require(:location).permit(:name, :adress, :start_date)
   end
 end

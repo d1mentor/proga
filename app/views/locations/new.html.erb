@@ -1,2 +1,15 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Добавление нового объекта</h1>
+
+<%= form_for @location do |f| %>
+	<%= f.label :name, 'Название объекта' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :adress, 'Адрес объекта' %>
+	<%= f.text_field :adress %>
+	<br>
+	<%= f.label :start_date, 'Дата начала работы (дд.мм.гггг)' %>
+	<%= f.text_field :start_date %>
+	<br>
+
+	<%= f.submit 'Добавить' %>
+<% end %>

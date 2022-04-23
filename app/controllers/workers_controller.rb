@@ -3,12 +3,17 @@ class WorkersController < ApplicationController
   end
 
   def index
+    @workers = Worker.all
   end
 
   def new
+    @worker = Worker.new
   end
 
   def create
+    @worker = Worker.new(permit_params)
+    @worker.save
+    redirect_to(root_path)
   end
 
   def delete
@@ -21,5 +26,11 @@ class WorkersController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def permit_params
+    params.require(:worker).permit(:name, :adress, :position, :rate, :phone, :email, :status, :skills)
   end
 end

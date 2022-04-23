@@ -1,2 +1,19 @@
-<h1>Customers#index</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
+<h1>Заказчики</h1>
+
+<%= link_to "Добавить нового заказчика", new_customer_path %>
+
+<% @customers.each do |customer| %>
+	<h1><%= customer.id %></h1>
+	ФИО заказчика: <%= customer.name %>
+	<br>	
+	Фирма которую представляет заказчик: <%= customer.company %>
+	<br>
+	Должность заказчика: <%= customer.position %>
+	<br>
+	Номер телефона заказчика: <%= customer.phone %>
+	<br>
+	EMAIL заказчика: <%= customer.email %>
+	<br>
+	
+	<p>------------------------------------------------------------</p>
+<% end %>

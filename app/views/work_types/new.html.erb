@@ -1,2 +1,13 @@
-<h1>WorkTypes#new</h1>
-<p>Find me in app/views/work_types/new.html.erb</p>
+<h1>Добавление нового вида работ</h1>
+
+<%= form_for @work_type do |f| %>
+	<%= f.label :name, 'название вида работ' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :dimension, 'В чем измеряется работа' %>
+	<%= f.text_field :dimension %>
+	<br>
+
+	<%= f.submit 'Добавить' %>
+<% end %>
+

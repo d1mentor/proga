@@ -15,11 +15,22 @@
     <%= current_user.email %>
     <% end %>
 
-    <%= link_to "Главная(Обьекты)", root_path %>
+    <br>
+    <%= link_to "Главная", root_path %>
+    <br>
+    <%= link_to "Объекты", locations_path %>
     <br>
     <%= link_to "Работники", workers_path %>
     <br>
     <%= link_to "Виды работ", work_types_path %>
+    <br>
+    <%= link_to "Инструменты", instruments_path %>
+    <br>
+    <%= link_to "Транспорт", transports_path %>
+    <br>
+    <%= link_to "Дневник", diaries_path %>
+    <br>
+    <%= link_to "Зарплаты", salaries_path %>
     <p>---------------------------------------------------------------------------------</p>
     <%= yield %>
   </body>

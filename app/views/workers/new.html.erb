@@ -1,2 +1,31 @@
-<h1>Workers#new</h1>
-<p>Find me in app/views/workers/new.html.erb</p>
+<h1>Добавление нового работника</h1>
+
+<%= form_for @worker do |f| %>
+	<%= f.label :name, 'ФИО работника' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :position, 'Должность' %>
+	<%= f.text_field :position %>
+	<br>
+	<%= f.label :rate, 'Ставка (целое число)' %>
+	<%= f.text_field :rate %>
+	<br>
+	<%= f.label :adress, 'Адрес' %>
+	<%= f.text_field :adress %>
+	<br>
+	<%= f.label :phone, 'Номер телефона' %>
+	<%= f.text_field :phone %>
+	<br>
+	<%= f.label :email, 'Электронная почта' %>
+	<%= f.text_field :email %>
+	<br>
+	<%= f.label :status, 'Статус' %>
+	<%= f.text_field :status %>
+	<br>
+	<%= f.label :skills, 'Навыки' %>
+	<%= f.text_field :skills %>
+	<br>
+	
+
+	<%= f.submit 'Добавить' %>
+<% end %>

@@ -1,2 +1,13 @@
-<h1>Locations#index</h1>
-<p>Find me in app/views/locations/index.html.erb</p>
+<h1>Объекты</h1>
+
+<%= link_to "Добавить новый объект", new_location_path %>
+
+<% @locations.each do |location| %>
+	<h1><%= location.id %></h1>
+	Название объекта: <%= location.name %>
+	<br>
+	Адрес объекта: <%= location.adress %>
+	<br>
+	Дата начала работы: <%= location.start_date %>
+	<br>	
+<% end %>
