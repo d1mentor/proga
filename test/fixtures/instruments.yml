@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  model_name: MyString
+  buy_date: 2022-04-23
+  price: 1
+  location_id: 1
+  worker_id: 1
+
+two:
+  name: MyString
+  model_name: MyString
+  buy_date: 2022-04-23
+  price: 1
+  location_id: 1
+  worker_id: 1

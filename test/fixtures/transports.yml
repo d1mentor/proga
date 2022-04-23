@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  model_name: MyString
+  to_date: 2022-04-23
+  insurance_date: 2022-04-23
+
+two:
+  name: MyString
+  model_name: MyString
+  to_date: 2022-04-23
+  insurance_date: 2022-04-23

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_id: 1
+  work_type_id: 1
+  price: 1
+  progress: 1
+  start_date: 2022-04-23
+  finish_date: 2022-04-23
+  paid: false
+  size: 1
+
+two:
+  location_id: 1
+  work_type_id: 1
+  price: 1
+  progress: 1
+  start_date: 2022-04-23
+  finish_date: 2022-04-23
+  paid: false
+  size: 1
