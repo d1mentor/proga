@@ -1,2 +1,20 @@
-<h1>LocationWorkTypes#new</h1>
-<p>Find me in app/views/location_work_types/new.html.erb</p>
+<h1>Добавление нового вида работы к обьекту</h1>
+
+<%= form_for @location_work_type do |f| %>
+	<%= f.label :work_type_id, 'Вид работы' %>
+	<%= f.text_field :work_type_id %>
+	<br>
+	<%= f.label :price, 'Цена' %>
+	<%= f.text_field :price %>
+	<br>
+	<%= f.label :start_date, 'Дата начала работы (дд.мм.гггг)' %>
+	<%= f.text_field :start_date %>
+	<br>
+	<%= f.label :size, 'Обьем' %>
+	<%= f.text_field :size %>
+	<br>
+
+	<%= f.hidden_field :location_id, :value => params[:location_id] %>
+	
+	<%= f.submit 'Добавить' %>
+<% end %>

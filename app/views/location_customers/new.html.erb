@@ -1,2 +1,11 @@
-<h1>LocationCustomers#new</h1>
-<p>Find me in app/views/location_customers/new.html.erb</p>
+<h1>Добавление нового заказчика к обьекту</h1>
+
+<%= form_for @location_customer do |f| %>
+	<%= f.label :customer_id, 'Заказчик' %>
+	<%= f.text_field :customer_id %>
+	<br>
+
+	<%= f.hidden_field :location_id, :value => params[:location_id] %>
+	
+	<%= f.submit 'Добавить' %>
+<% end %>

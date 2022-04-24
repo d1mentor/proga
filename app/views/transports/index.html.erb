@@ -1,2 +1,16 @@
-<h1>Transports#index</h1>
-<p>Find me in app/views/transports/index.html.erb</p>
+<h1>Транспорт</h1>
+
+<%= link_to "Добавить новый Транспорт", new_transport_path %>
+
+<% @transports.each do |transport| %>
+	<h1><%= transport.id %></h1>
+	Название транспорта: <%= transport.name %>
+	<br>
+	Модель: <%= transport.description %>
+	<br>
+	Дата последнего ТО: <%= transport.to_date %>
+	<br>
+	Страховка действительна до: <%= transport.insurance_date %>
+	<br>
+		
+<% end %>

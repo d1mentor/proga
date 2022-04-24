@@ -1,2 +1,24 @@
-<h1>Instruments#new</h1>
-<p>Find me in app/views/instruments/new.html.erb</p>
+<h1>Добавление нового объекта</h1>
+
+<%= form_for @instrument do |f| %>
+	<%= f.label :name, 'Название инструмента' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :description, 'Модель' %>
+	<%= f.text_field :description %>
+	<br>
+	<%= f.label :buy_date, 'Дата покупки (дд.мм.гггг)' %>
+	<%= f.text_field :buy_date %>
+	<br>
+	<%= f.label :price, 'Цена' %>
+	<%= f.text_field :price %>
+	<br>
+	<%= f.label :location_id, 'На каком обьекте сейчас?' %>
+	<%= f.text_field :location_id %>
+	<br>
+	<%= f.label :worker_id, 'У какого работника сейчас?' %>
+	<%= f.text_field :worker_id %>
+	<br>
+
+	<%= f.submit 'Добавить' %>
+<% end %>

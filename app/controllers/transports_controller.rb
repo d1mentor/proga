@@ -3,12 +3,17 @@ class TransportsController < ApplicationController
   end
 
   def index
+    @transports = Transport.all
   end
 
   def new
+    @transport = Transport.new
   end
 
   def create
+    @transport = Transport.new(permit_params)
+    @transport.save
+    redirect_to(root_path)
   end
 
   def delete
@@ -21,5 +26,11 @@ class TransportsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def permit_params
+    params.require(:transport).permit(:name, :description, :to_date, :insurance_date)
   end
 end

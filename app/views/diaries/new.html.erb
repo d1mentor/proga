@@ -1,2 +1,17 @@
-<h1>Diaries#new</h1>
-<p>Find me in app/views/diaries/new.html.erb</p>
+<h1>Добавление новой записи в дневник</h1>
+
+<%= form_for @diary do |f| %>
+	<%= f.label :worker_id, 'Работник' %>
+	<%= f.text_field :worker_id %>
+	<br>
+	<%= f.label :location_work_type_id, 'Вид работы на обьекте' %>
+	<%= f.text_field :location_work_type_id %>
+	<br>
+	<%= f.label :size, 'Выполненый обьем работ' %>
+	<%= f.text_field :size %>
+	<br>
+	<%= f.label :time, 'Отработано часов' %>
+	<%= f.text_field :time %>
+	<br>
+	<%= f.submit 'Добавить' %>
+<% end %>

@@ -1,2 +1,29 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1><%= @location.name %></h1>
+<p>Адрес: <%= @location.adress %></p>
+<p>Дата начала работы: <%= @location.start_date %></p>
+<h3>Заказчики:</h3>
+
+<% @location.location_customers.each do |location_customer| %>
+	<p><%= link_to "#{location_customer.customer.name}", "../customers/#{location_customer.customer.id}"  %></p>
+<% end %>
+<p>----------------------------------------------------------</p>
+<%= link_to "Добавить заказчика", new_location_customer_path(location_id: @location.id) %>
+
+<h3>Виды работ:</h3>
+
+<% @location.location_work_types.each do |location_work_type| %>
+	<p>Название: <%= location_work_type.work_type.name %></p>
+	<p>Общий объем: <%= location_work_type.size %></p>
+	<p>Цена за <%= location_work_type.work_type.dimension %>: <%= location_work_type.price %> злотых</p>
+	<p>Ожидаемый доход: <%= location_work_type.size.to_i*location_work_type.price.to_i %> злотых</p>
+	<p>Прогресс: <%= location_work_type.progress %>%</p>
+	<p>Дата начала работ: <%= location_work_type.start_date %></p>
+	<% if location_work_type.paid %>
+		<p>Оплата: Оплачено</p>
+	<% else %>
+		<p>Оплата: Не оплачено</p>
+	<% end %>
+<% end %>
+<p>----------------------------------------------------------</p>
+
+<%= link_to "Добавить вид работ", new_location_work_type_path(location_id: @location.id) %>

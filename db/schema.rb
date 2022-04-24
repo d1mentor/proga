@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
-    t.string "model_name"
+    t.string "description"
     t.date "buy_date"
     t.integer "price"
     t.integer "location_id"
@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
 
   create_table "transports", force: :cascade do |t|
     t.string "name"
-    t.string "model_name"
+    t.string "description"
     t.date "to_date"
     t.date "insurance_date"
     t.datetime "created_at", null: false

@@ -1,2 +1,19 @@
-<h1>Transports#new</h1>
-<p>Find me in app/views/transports/new.html.erb</p>
+<h1>Добавление нового транспорта</h1>
+
+<%= form_for @transport do |f| %>
+	<%= f.label :name, 'Название транспорта' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :description, 'Модель транспорта' %>
+	<%= f.text_field :description %>
+	<br>
+	<%= f.label :to_date, 'Дата последнего ТО (дд.мм.гггг)' %>
+	<%= f.text_field :to_date %>
+	<br>
+	<%= f.label :insurance_date, 'До когда действует страховка (дд.мм.гггг)' %>
+	<%= f.text_field :insurance_date %>
+	<br>
+	
+
+	<%= f.submit 'Добавить' %>
+<% end %>

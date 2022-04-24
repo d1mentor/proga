@@ -1,2 +1,20 @@
-<h1>Instruments#index</h1>
-<p>Find me in app/views/instruments/index.html.erb</p>
+<h1>Инструменты</h1>
+
+<%= link_to "Добавить новый инструмент", new_instrument_path %>
+
+<% @instruments.each do |instrument| %>
+	<h1><%= instrument.id %></h1>
+	Название инструмента: <%= instrument.name %>
+	<br>
+	Модель: <%= instrument.description %>
+	<br>
+	Дата покупки: <%= instrument.buy_date %>
+	<br>
+	Цена: <%= instrument.price %>
+	<br>
+	Сейчас на обьекте: <%= instrument.location.name %>
+	<br>
+	Сейчас у работника: <%= instrument.worker.name %>
+	<br>
+		
+<% end %>
