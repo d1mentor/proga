@@ -32,6 +32,6 @@ class LocationWorkTypesController < ApplicationController
   private
 
   def permit_params
-    params.require(:location_work_type).permit(:location_id, :work_type_id, :price, :start_date, :size)
+    params.require(:location_work_type).permit(:location_id, :work_type_id, :price, :accord_price, :start_date, :size)
   end
 end

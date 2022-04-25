@@ -14,10 +14,10 @@
 	<%= f.text_field :price %>
 	<br>
 	<%= f.label :location_id, 'На каком обьекте сейчас?' %>
-	<%= f.text_field :location_id %>
+	<%= f.select(:location_id, Location.all.collect {|p| [ p.name, p.id ] }) %>
 	<br>
 	<%= f.label :worker_id, 'У какого работника сейчас?' %>
-	<%= f.text_field :worker_id %>
+	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }) %>
 	<br>
 
 	<%= f.submit 'Добавить' %>

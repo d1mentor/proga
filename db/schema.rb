@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
     t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "diary_date"
   end
 
   create_table "expenditures", force: :cascade do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
     t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "accord_price"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -90,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
     t.date "salary_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size"
   end
 
   create_table "transports", force: :cascade do |t|
@@ -131,6 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_160105) do
     t.string "skills"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accord"
   end
 
 end

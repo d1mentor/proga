@@ -1,2 +1,28 @@
-<h1>Salaries#new</h1>
-<p>Find me in app/views/salaries/new.html.erb</p>
+<h1>Выписываем зарплату для <%= @worker.name %></h1>
+
+<p>За <%= params[:month] %> месяц <%= @worker.name %> сделал:</p>
+
+<% @worker_works.each do |diary| %>
+	<p> <%= diary.diary_date %> | <%= diary.size %> <%= diary.location_work_type.work_type.dimension %> <%= diary.location_work_type.work_type.name %> на <%= diary.location_work_type.location.name %>, отработал <%= diary.time %> часов </p>
+<% end %>
+
+<% if @worker.accord %>
+	<p>За месяц работник принес <%= @gesheft %> злотых прибыли</p>
+	<p>Ожидаемая зарплата <%= @accord_salary %> злотых</p>
+<% else %>
+<p>Всего за месяц <%= @worker.name %> отработал <%= @hours_per_month %> часов </p>
+<p>Ставка <%= @worker.name %> <%= @worker.rate %> злотых в час</p>
+<p>Ожидаемая зарплата: <%= @hours_per_month*@worker.rate.to_i %> злотых</p>
+<% end %>
+
+<%= form_for @salary do |f| %>
+	<%= f.label :salary_date, 'Дата выдачи зарплаты (дд.мм.гггг)' %>
+	<%= f.text_field :salary_date %>
+	<br>
+	<%= f.label :size, 'Размер зарплаты' %>
+	<%= f.text_field :size %>
+	<br>
+	<%= f.hidden_field :worker_id, :value => @worker.id %>
+
+	<%= f.submit 'Добавить' %>
+<% end %>

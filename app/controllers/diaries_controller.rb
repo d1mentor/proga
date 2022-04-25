@@ -40,6 +40,6 @@ class DiariesController < ApplicationController
   end
 
   def permit_params
-    params.require(:diary).permit(:size, :time, :worker_id, :location_work_type_id)
+    params.require(:diary).permit(:size, :time, :worker_id, :location_work_type_id, :diary_date)
   end
 end

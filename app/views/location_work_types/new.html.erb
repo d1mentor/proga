@@ -2,10 +2,14 @@
 
 <%= form_for @location_work_type do |f| %>
 	<%= f.label :work_type_id, 'Вид работы' %>
-	<%= f.text_field :work_type_id %>
+	<%= f.select(:work_type_id, WorkType.all.collect {|p| [ p.name, p.id ] })
+ %>
 	<br>
-	<%= f.label :price, 'Цена' %>
+	<%= f.label :price, 'Цена которую платит заказчик' %>
 	<%= f.text_field :price %>
+	<br>
+	<%= f.label :accord_price, 'Цена для рабочего' %>
+	<%= f.text_field :accord_price %>
 	<br>
 	<%= f.label :start_date, 'Дата начала работы (дд.мм.гггг)' %>
 	<%= f.text_field :start_date %>

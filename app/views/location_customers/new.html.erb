@@ -2,7 +2,7 @@
 
 <%= form_for @location_customer do |f| %>
 	<%= f.label :customer_id, 'Заказчик' %>
-	<%= f.text_field :customer_id %>
+	<%= f.select(:customer_id, Customer.all.collect {|p| [ p.name, p.id ] }) %>
 	<br>
 
 	<%= f.hidden_field :location_id, :value => params[:location_id] %>

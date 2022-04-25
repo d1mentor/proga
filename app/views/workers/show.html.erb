@@ -1,2 +1,29 @@
-<h1>Workers#show</h1>
-<p>Find me in app/views/workers/show.html.erb</p>
+<h1><%= @worker.name %></h1>
+
+	ФИО работника: <%= @worker.name %>
+	<br>	
+	Должность работника: <%= @worker.position %>
+	<br>
+	Номер телефона работника: <%= @worker.phone %>
+	<br>
+	EMAIL работника: <%= @worker.email %>
+	<br>
+	статус работника: <%= @worker.status %>
+	<br>
+	Навыки работника: <%= @worker.skills %>
+	<br>
+	Аккорд: <%= @worker.accord.to_s %>
+	<br>
+	Ставка: <%= @worker.rate %> злотых в час
+	<br>
+	Адрес проживания работника: <%= @worker.adress %>
+	<br>
+
+	<p>Выписать зарплату:</p>
+
+	<%= form_tag("/salaries/new", method: :get) do%>
+		<p>Месяц:</p>
+		<%= select_tag(:month, options_for_select(["01","02","03","04","05","06","07","08","09","10","11","12"])) %>
+		<%= hidden_field_tag(:worker_id, @worker.id) %>
+		<%= submit_tag("Выписать зарплату") %>
+	<% end %>

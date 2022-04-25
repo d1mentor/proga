@@ -1,11 +1,14 @@
 <h1>Добавление новой записи в дневник</h1>
 
 <%= form_for @diary do |f| %>
+	<%= f.label :diary_date, 'Дата когда сделана работа (дд.мм.гггг)' %>
+	<%= f.text_field :diary_date %>
+	<br>
 	<%= f.label :worker_id, 'Работник' %>
-	<%= f.text_field :worker_id %>
+	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }) %>
 	<br>
 	<%= f.label :location_work_type_id, 'Вид работы на обьекте' %>
-	<%= f.text_field :location_work_type_id %>
+	<%= f.select(:location_work_type_id, LocationWorkType.all.collect {|p| [ "#{p.work_type.name} на #{p.location.name}", p.id ] }) %>
 	<br>
 	<%= f.label :size, 'Выполненый обьем работ' %>
 	<%= f.text_field :size %>

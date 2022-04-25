@@ -1,2 +1,12 @@
-<h1>Salaries#index</h1>
-<p>Find me in app/views/salaries/index.html.erb</p>
+<h1>Зарплаты</h1>
+
+<% @salaries.each do |salary| %>
+
+	Работник: <%= salary.worker.name %>
+	<br>
+	Выплачено: <%= salary.size %>
+	<br>
+	Дата выплаты: <%= salary.salary_date %>
+	<br>	
+	<p>----------------------------------------</p>
+<% end %>
