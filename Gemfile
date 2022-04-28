@@ -19,6 +19,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'bootstrap-datepicker-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

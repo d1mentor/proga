@@ -1,0 +1,14 @@
+<h1>Добавление новой оплаты</h1>
+
+<%= form_for @payout do |f| %>
+	<%= f.label :size, 'Сумма' %>
+	<%= f.text_field :size %>
+	<br>
+	<%= f.label :payout_date, 'Дата оплаты' %>
+	<%= f.date_field :payout_date, :id => "datepicker" %>
+	<br>
+
+	<%= f.hidden_field :location_work_type_id, :value => params[:location_work_type_id] %>
+	
+	<%= f.submit 'Добавить' %>
+<% end %>

@@ -12,7 +12,7 @@
 	<%= f.text_field :accord_price %>
 	<br>
 	<%= f.label :start_date, 'Дата начала работы (дд.мм.гггг)' %>
-	<%= f.text_field :start_date %>
+	<%= f.date_field :start_date, :id => "datepicker" %>
 	<br>
 	<%= f.label :size, 'Обьем' %>
 	<%= f.text_field :size %>

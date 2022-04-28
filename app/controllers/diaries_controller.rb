@@ -12,7 +12,8 @@ class DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(permit_params)
-    @diary.save
+    @diary.salary_id = Salary.find(1).id
+    @diary.save!
     update_location_work_type(@diary)
     redirect_to(root_path)
   end
@@ -40,6 +41,6 @@ class DiariesController < ApplicationController
   end
 
   def permit_params
-    params.require(:diary).permit(:size, :time, :worker_id, :location_work_type_id, :diary_date)
+    params.require(:diary).permit(:size, :accord, :time, :worker_id, :location_work_type_id, :diary_date)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_28_135152) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -29,6 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "diary_date"
+    t.boolean "accord"
+    t.integer "salary_id"
   end
 
   create_table "expenditures", force: :cascade do |t|
@@ -65,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "location_materials", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "material_id"
+    t.integer "count"
+    t.integer "price"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "location_work_types", force: :cascade do |t|
     t.integer "location_id"
     t.integer "work_type_id"
@@ -83,6 +95,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
     t.string "name"
     t.string "adress"
     t.date "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payouts", force: :cascade do |t|
+    t.integer "location_work_type_id"
+    t.integer "size"
+    t.date "payout_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,7 +161,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_202947) do
     t.string "skills"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accord"
   end
 
 end

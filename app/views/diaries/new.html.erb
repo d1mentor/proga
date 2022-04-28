@@ -2,7 +2,7 @@
 
 <%= form_for @diary do |f| %>
 	<%= f.label :diary_date, 'Дата когда сделана работа (дд.мм.гггг)' %>
-	<%= f.text_field :diary_date %>
+	<%= f.date_field :diary_date, :id => "datepicker" %>
 	<br>
 	<%= f.label :worker_id, 'Работник' %>
 	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }) %>
@@ -12,6 +12,9 @@
 	<br>
 	<%= f.label :size, 'Выполненый обьем работ' %>
 	<%= f.text_field :size %>
+	<br>
+	<%= f.label :accord, 'Аккорд?' %>
+	<%= f.select(:accord, [["true", true], ["false", false]]) %>
 	<br>
 	<%= f.label :time, 'Отработано часов' %>
 	<%= f.text_field :time %>

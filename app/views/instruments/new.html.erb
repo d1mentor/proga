@@ -8,7 +8,7 @@
 	<%= f.text_field :description %>
 	<br>
 	<%= f.label :buy_date, 'Дата покупки (дд.мм.гггг)' %>
-	<%= f.text_field :buy_date %>
+	<%= f.date_field :buy_date, :id => "datepicker" %>
 	<br>
 	<%= f.label :price, 'Цена' %>
 	<%= f.text_field :price %>

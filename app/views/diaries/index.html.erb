@@ -9,6 +9,11 @@
 	<br>
 	Отработал часов: <%= diary.time %>
 	<br>
+	<% if diary.accord %>
+	<p>Работал на аккорд</p>
+	<% else %>
+	<p>Работал на почасовку</p>
+	<% end %>
 	Сделал: <%= diary.size %> <%= diary.location_work_type.work_type.dimension %> <%= diary.location_work_type.work_type.name %>
 	<br>	
 <% end %>

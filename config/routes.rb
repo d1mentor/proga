@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'index/index'
 
   devise_for :users
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
     resources :location_customers
     resources :diaries
     resources :transports
+    resources :materials
+    resources :location_materials
+    resources :payouts
 
     root "index#index"
 end

@@ -19,11 +19,13 @@
 	<p>Ожидаемый доход: <%= location_work_type.size.to_i*location_work_type.price.to_i %> злотых</p>
 	<p>Прогресс: <%= location_work_type.progress %>%</p>
 	<p>Дата начала работ: <%= location_work_type.start_date %></p>
-	<% if location_work_type.paid %>
-		<p>Оплата: Оплачено</p>
-	<% else %>
-		<p>Оплата: Не оплачено</p>
+
+	<p>Оплаты:</p>
+	<% location_work_type.payouts.each do |payout| %>
+		<p> <%= payout.payout_date %> | <%= payout.size %> злотых </p> 
 	<% end %>
+
+	<%= link_to "Добавить оплату", new_payout_path(location_work_type_id: location_work_type.id) %>	
 	<p>----------------------------------------------------------</p>
 <% end %>
 

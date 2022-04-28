@@ -8,7 +8,7 @@
 	<%= f.text_field :adress %>
 	<br>
 	<%= f.label :start_date, 'Дата начала работы (дд.мм.гггг)' %>
-	<%= f.text_field :start_date %>
+	<%= f.date_field :start_date, :id => "datepicker" %>
 	<br>
 
 	<%= f.submit 'Добавить' %>

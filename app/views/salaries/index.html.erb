@@ -2,6 +2,8 @@
 
 <% @salaries.each do |salary| %>
 
+	<% if salary.id != 1 %>
+
 	Работник: <%= salary.worker.name %>
 	<br>
 	Выплачено: <%= salary.size %>
@@ -9,4 +11,5 @@
 	Дата выплаты: <%= salary.salary_date %>
 	<br>	
 	<p>----------------------------------------</p>
+	<% end %>
 <% end %>
