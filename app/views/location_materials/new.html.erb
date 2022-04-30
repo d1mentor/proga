@@ -1,2 +1,24 @@
-<h1>LocationMaterials#new</h1>
-<p>Find me in app/views/location_materials/new.html.erb</p>
+<h1>Добавление закупленных материалов к обьекту</h1>
+
+<%= form_for @location_material do |f| %>
+	<%= f.label :material_id, 'Материал' %>
+	<%= f.select(:material_id, Material.all.collect {|p| [ p.name, p.id ] })
+ %>
+	<br>
+	<%= f.label :price, 'Стоимость 1 еденицы:' %>
+	<%= f.text_field :price %>
+	<br>
+	<%= f.label :count, 'Количество:' %>
+	<%= f.text_field :count %>
+	<br>
+	<%= f.label :buy_date, 'Дата Закупки:' %>
+	<%= f.date_field :buy_date, :id => "datepicker" %>
+	<br>
+	<%= f.label :description, 'Комментарий:' %>
+	<%= f.text_field :description %>
+	<br>
+
+	<%= f.hidden_field :location_id, :value => params[:location_id] %>
+	
+	<%= f.submit 'Добавить' %>
+<% end %>

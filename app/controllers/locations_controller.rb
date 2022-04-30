@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id]) 
+    @location_materials = LocationMaterial.where(location_id: @location.id)
   end
 
   def index

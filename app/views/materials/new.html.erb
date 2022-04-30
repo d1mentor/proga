@@ -1,2 +1,13 @@
-<h1>Material#new</h1>
-<p>Find me in app/views/material/new.html.erb</p>
+<h1>Добавление нового материала</h1>
+
+<%= form_for @material do |f| %>
+	<%= f.label :name, 'Название материала' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :dimension, 'В чем измеряется материал?' %>
+	<%= f.text_field :dimension %>
+	<br>
+
+	<%= f.submit 'Добавить' %>
+<% end %>
+

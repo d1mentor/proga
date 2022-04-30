@@ -1,3 +1,39 @@
 <h1>ГЛАВНАЯ</h1>
 <h2>Бюджет</h2>
 <p>Текущее состояние: <%= @budget %> злотых</p>
+
+<h4>Доходы: </h4>
+<p>Оплаты:</p>
+<p>---------------------------------------------------------</p>
+	<% @dohods.sort_by{ |obj| obj.payout_date }.reverse.each do |payout| %>
+		<p>+<%= payout.size %> злотых</p>
+		<p>Дата выплаты: <%= payout.payout_date %></p>
+		<p>За что: <%= payout.location_work_type.work_type.name %> на обьекте <%= payout.location_work_type.location.name %></p>
+		<p>---------------------------------------------------------</p>
+	<% end %>
+<h4>Расходы: </h4>
+
+<p>Зарплаты:</p>
+<p>---------------------------------------------------------</p>
+<% @rashods[:salaries].sort_by{ |obj| obj.salary_date }.reverse.each do |salary|%>
+	<p>-<%= salary.size %> злотых</p>
+	<p>Дата: <%= salary.salary_date %></p>
+	<p>Кому: <%= salary.worker.name %></p>
+<p>---------------------------------------------------------</p>
+<% end %>
+<p>Закупки материалов:</p>
+<p>---------------------------------------------------------</p>
+<% @rashods[:materials].sort_by{ |obj| obj.buy_date }.reverse.each do |loc_material|%>
+	<p><%= loc_material.count %> <%= loc_material.material.dimension %> на <%= loc_material.location.name %></p>
+	<p>Стоимость: <%= loc_material.price*loc_material.count %> злотых</p>
+	<p>Дата: <%= loc_material.buy_date %></p>
+<p>---------------------------------------------------------</p>
+<% end %>
+<p>Закупки инструментов:</p>
+<p>---------------------------------------------------------</p>
+<% @rashods[:instruments].sort_by{ |obj| obj.buy_date }.reverse.each do |instrument|%>
+	<p>Название: <%= instrument.name %></p>
+	<p>Стоимость: <%= instrument.price %></p>
+	<p>Дата: <%= instrument.buy_date %></p>
+<p>---------------------------------------------------------</p>
+<% end %>

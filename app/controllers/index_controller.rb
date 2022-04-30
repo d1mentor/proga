@@ -3,6 +3,8 @@ class IndexController < ApplicationController
     @plus_all = plus_all
     @minus_all = minus_all
     @budget = @plus_all - @minus_all
+    @dohods = Payout.all
+    @rashods = { :salaries => Salary.where(id: 2..99999), :instruments => Instrument.all, :materials => LocationMaterial.all }
   end
 
   private
@@ -27,6 +29,10 @@ class IndexController < ApplicationController
 
       Instrument.all.each do |instrument|
         minus += instrument.price
+      end
+
+      LocationMaterial.all.each do |location_material|
+        minus += location_material.count*location_material.price
       end   
     minus
   end

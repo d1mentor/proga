@@ -31,3 +31,15 @@
 
 
 <%= link_to "Добавить вид работ", new_location_work_type_path(location_id: @location.id) %>
+
+<h4>Закупленные материалы:</h4>
+	
+	<% @location_materials.each do |location_material| %>
+		<p>Название: <%= location_material.material.name %> </p>
+		<p>Стоимость: Общая - <%= location_material.price*location_material.count %> злотых | За еденицу - <%= location_material.price %> злотых </p>
+		<p>Количество: <%= location_material.count %> <%= location_material.material.dimension %> </p>
+		<p>Дата покупки: <%= location_material.buy_date %> </p>
+		<p>Комментарий: <%= location_material.description %> </p>
+	<% end %>
+
+	<%= link_to "Добавить материалы", new_location_material_path(location_id: @location.id) %>	
