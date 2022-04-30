@@ -7,11 +7,11 @@
 	<% @worker_diaries.each do |diary| %>
 			
 			<% if diary.accord %>
-				<%= f.check_box(:diary_ids, {:multiple => true, :money => "#{diary.size*diary.location_work_type.accord_price}"}, diary.id, nil) %>
+				<%= f.check_box(:diary_ids, {:multiple => true, "data-money" => "#{diary.size*diary.location_work_type.accord_price}", :onclick => "sum(salary_diary_ids_#{diary.id})"}, diary.id, nil) %>
 				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.size*diary.location_work_type.accord_price} " %>
 			<br>
 			<% else %>
-				<%= f.check_box(:diary_ids, {:multiple => true, :money => "#{diary.time*diary.worker.rate}"}, diary.id, nil) %>
+				<%= f.check_box(:diary_ids, {:multiple => true, "data-money" => "#{diary.time*diary.worker.rate}", :onclick => "sum(salary_diary_ids_#{diary.id})"}, diary.id, nil) %>
 				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.time*diary.worker.rate} " %>
 			<br>
 			<% end %>
@@ -32,7 +32,17 @@
 <% end %>
 
 <script type="text/javascript">
-	function calculte = {
-	  	var salary_label = document.getElementById("salary_size")
+	function sum(input) {
+		if(input.checked){
+			var label = document.getElementById("salary_size");
+			var label_value = Number(label.innerHTML);
+			var input_value = Number(input.dataset.money)
+			label.innerHTML = label_value + input_value;
+		} else {
+			var label = document.getElementById("salary_size");
+			var label_value = Number(label.innerHTML);
+			var input_value = Number(input.dataset.money)
+			label.innerHTML = label_value - input_value;
+		}
 	};
 </script>
