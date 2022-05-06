@@ -1,13 +1,13 @@
 <h1>Добавление нового вида работ</h1>
 
 <%= form_for @work_type do |f| %>
-	<%= f.label :name, 'название вида работ' %>
-	<%= f.text_field :name %>
+	<%= f.label :name, 'название вида работ', class: "form-label" %>
+	<%= f.text_field :name, class: "form-control" %>
 	<br>
-	<%= f.label :dimension, 'В чем измеряется работа' %>
-	<%= f.text_field :dimension %>
+	<%= f.label :dimension, 'В чем измеряется работа', class: "form-label" %>
+	<%= f.text_field :dimension, class: "form-control" %>
 	<br>
 
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>
 

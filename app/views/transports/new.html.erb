@@ -1,19 +1,19 @@
 <h1>Добавление нового транспорта</h1>
 
 <%= form_for @transport do |f| %>
-	<%= f.label :name, 'Название транспорта' %>
-	<%= f.text_field :name %>
+	<%= f.label :name, 'Название транспорта', class: "form-label" %>
+	<%= f.text_field :name, class: "form-control" %>
 	<br>
-	<%= f.label :description, 'Модель транспорта' %>
-	<%= f.text_field :description %>
+	<%= f.label :description, 'Модель транспорта', class: "form-label" %>
+	<%= f.text_field :description, class: "form-control" %>
 	<br>
-	<%= f.label :to_date, 'Дата последнего ТО (дд.мм.гггг)' %>
-	<%= f.date_field :to_date, :id => "datepicker" %>
+	<%= f.label :to_date, 'Дата последнего ТО (дд.мм.гггг)', class: "form-label" %>
+	<%= f.date_field :to_date, :id => "datepicker", class: "form-control" %>
 	<br>
-	<%= f.label :insurance_date, 'До когда действует страховка (дд.мм.гггг)' %>
-	<%= f.date_field :insurance_date, :id => "datepicker" %>
+	<%= f.label :insurance_date, 'До когда действует страховка (дд.мм.гггг)', class: "form-label" %>
+	<%= f.date_field :insurance_date, :id => "datepicker", class: "form-control" %>
 	<br>
 	
 
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>

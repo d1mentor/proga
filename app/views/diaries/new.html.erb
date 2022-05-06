@@ -1,23 +1,23 @@
 <h1>Добавление новой записи в дневник</h1>
 
 <%= form_for @diary do |f| %>
-	<%= f.label :diary_date, 'Дата когда сделана работа (дд.мм.гггг)' %>
-	<%= f.date_field :diary_date, :id => "datepicker" %>
+	<%= f.label :diary_date, 'Дата когда сделана работа (дд.мм.гггг)', class: "form-label" %>
+	<%= f.date_field :diary_date, :id => "datepicker", class: "form-control" %>
 	<br>
-	<%= f.label :worker_id, 'Работник' %>
-	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }) %>
+	<%= f.label :worker_id, 'Работник', class: "form-label" %>
+	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }, {}, { class: 'form-control' }) %>
 	<br>
-	<%= f.label :location_work_type_id, 'Вид работы на обьекте' %>
-	<%= f.select(:location_work_type_id, LocationWorkType.all.collect {|p| [ "#{p.work_type.name} на #{p.location.name}", p.id ] }) %>
+	<%= f.label :location_work_type_id, 'Вид работы на обьекте', class: "form-label" %>
+	<%= f.select(:location_work_type_id, LocationWorkType.all.collect {|p| [ "#{p.work_type.name} на #{p.location.name}", p.id ] }, {}, { class: 'form-control' }) %>
 	<br>
-	<%= f.label :size, 'Выполненый обьем работ' %>
-	<%= f.text_field :size %>
+	<%= f.label :size, 'Выполненый обьем работ', class: "form-label" %>
+	<%= f.text_field :size, class: "form-control" %>
 	<br>
-	<%= f.label :accord, 'Аккорд?' %>
-	<%= f.select(:accord, [["true", true], ["false", false]]) %>
+	<%= f.label :accord, 'Аккорд?', class: "form-label" %>
+	<%= f.select(:accord, [["true", true], ["false", false]], {}, { class: 'form-control' }) %>
 	<br>
-	<%= f.label :time, 'Отработано часов' %>
-	<%= f.text_field :time %>
+	<%= f.label :time, 'Отработано часов', class: "form-label" %>
+	<%= f.text_field :time, class: "form-control" %>
 	<br>
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>

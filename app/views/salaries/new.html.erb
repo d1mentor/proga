@@ -8,27 +8,29 @@
 			
 			<% if diary.accord %>
 				<%= f.check_box(:diary_ids, {:multiple => true, "data-money" => "#{diary.size*diary.location_work_type.accord_price}", :onclick => "sum(salary_diary_ids_#{diary.id})"}, diary.id, nil) %>
-				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.size*diary.location_work_type.accord_price} " %>
+				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.size*diary.location_work_type.accord_price} ", class: "form-label" %>
 			<br>
 			<% else %>
 				<%= f.check_box(:diary_ids, {:multiple => true, "data-money" => "#{diary.time*diary.worker.rate}", :onclick => "sum(salary_diary_ids_#{diary.id})"}, diary.id, nil) %>
-				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.time*diary.worker.rate} " %>
+				<%= f.label :diary_ids, "#{diary.diary_date} | #{diary.size} #{diary.location_work_type.work_type.dimension} #{diary.location_work_type.work_type.name} на обьекте: #{diary.location_work_type.location.name} | к оплате: #{diary.time*diary.worker.rate} ", class: "form-label" %>
 			<br>
 			<% end %>
 	<% end %>
 
+	<br>
 	<label>Рекомендуемая сумма зарплаты <label id="salary_size">0</label> злотых</label>
 	<br>
-
-	<%= f.label :size, 'дата выдачи зарплаты' %>
-	<%= f.date_field :salary_date, :id => "datepicker" %>
 	<br>
-	<%= f.label :size, 'Размер зарплаты' %>
-	<%= f.text_field :size %>
+
+	<%= f.label :size, 'дата выдачи зарплаты', class: "form-label" %>
+	<%= f.date_field :salary_date, :id => "datepicker", class: "form-control" %>
+	<br>
+	<%= f.label :size, 'Размер зарплаты', class: "form-label" %>
+	<%= f.text_field :size, class: "form-control" %>
 	<br>
 	<%= f.hidden_field :worker_id, :value => @worker.id %>
 
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>
 
 <script type="text/javascript">

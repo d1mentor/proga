@@ -1,24 +1,24 @@
 <h1>Добавление нового объекта</h1>
 
 <%= form_for @instrument do |f| %>
-	<%= f.label :name, 'Название инструмента' %>
-	<%= f.text_field :name %>
+	<%= f.label :name, 'Название инструмента', class: "form-label" %>
+	<%= f.text_field :name, class: "form-control" %>
 	<br>
-	<%= f.label :description, 'Модель' %>
-	<%= f.text_field :description %>
+	<%= f.label :description, 'Модель', class: "form-label" %>
+	<%= f.text_field :description, class: "form-control" %>
 	<br>
-	<%= f.label :buy_date, 'Дата покупки (дд.мм.гггг)' %>
-	<%= f.date_field :buy_date, :id => "datepicker" %>
+	<%= f.label :buy_date, 'Дата покупки (дд.мм.гггг)', class: "form-label" %>
+	<%= f.date_field :buy_date, :id => "datepicker", class: "form-control" %>
 	<br>
-	<%= f.label :price, 'Цена' %>
-	<%= f.text_field :price %>
+	<%= f.label :price, 'Цена', class: "form-label" %>
+	<%= f.text_field :price, class: "form-control" %>
 	<br>
-	<%= f.label :location_id, 'На каком обьекте сейчас?' %>
-	<%= f.select(:location_id, Location.all.collect {|p| [ p.name, p.id ] }) %>
+	<%= f.label :location_id, 'На каком обьекте сейчас?', class: "form-label" %>
+	<%= f.select(:location_id, Location.all.collect {|p| [ p.name, p.id ] }, {}, { class: 'form-control' }) %>
 	<br>
-	<%= f.label :worker_id, 'У какого работника сейчас?' %>
-	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }) %>
+	<%= f.label :worker_id, 'У какого работника сейчас?', class: "form-label" %>
+	<%= f.select(:worker_id, Worker.all.collect {|p| [ p.name, p.id ] }, {}, { class: 'form-control' }) %>
 	<br>
 
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>

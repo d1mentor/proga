@@ -1,24 +1,24 @@
 <h1>Добавление закупленных материалов к обьекту</h1>
 
 <%= form_for @location_material do |f| %>
-	<%= f.label :material_id, 'Материал' %>
+	<%= f.label :material_id, 'Материал', class: "form-label" %>
 	<%= f.select(:material_id, Material.all.collect {|p| [ p.name, p.id ] })
  %>
 	<br>
-	<%= f.label :price, 'Стоимость 1 еденицы:' %>
-	<%= f.text_field :price %>
+	<%= f.label :price, 'Стоимость 1 еденицы:', class: "form-label" %>
+	<%= f.text_field :price, class: "form-control" %>
 	<br>
-	<%= f.label :count, 'Количество:' %>
-	<%= f.text_field :count %>
+	<%= f.label :count, 'Количество:', class: "form-label" %>
+	<%= f.text_field :count, class: "form-control" %>
 	<br>
-	<%= f.label :buy_date, 'Дата Закупки:' %>
-	<%= f.date_field :buy_date, :id => "datepicker" %>
+	<%= f.label :buy_date, 'Дата Закупки:', class: "form-label" %>
+	<%= f.date_field :buy_date, :id => "datepicker", class: "form-control" %>
 	<br>
-	<%= f.label :description, 'Комментарий:' %>
-	<%= f.text_field :description %>
+	<%= f.label :description, 'Комментарий:', class: "form-label" %>
+	<%= f.text_field :description, class: "form-control" %>
 	<br>
 
 	<%= f.hidden_field :location_id, :value => params[:location_id] %>
 	
-	<%= f.submit 'Добавить' %>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
 <% end %>

@@ -1,15 +1,32 @@
-<h1><%= @location.name %></h1>
-<p>Адрес: <%= @location.adress %></p>
-<p>Дата начала работы: <%= @location.start_date %></p>
-<h3>Заказчики:</h3>
+<h1 class="text-center"><%= @location.name %></h1>
 
-<% @location.location_customers.each do |location_customer| %>
-	<p><%= link_to "#{location_customer.customer.name}", "../customers/#{location_customer.customer.id}"  %></p>
-<% end %>
-<p>----------------------------------------------------------</p>
-<%= link_to "Добавить заказчика", new_location_customer_path(location_id: @location.id) %>
+<div class="container">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h3>Информация:</h3>
+					<p>Адрес: <%= @location.adress %></p>
+					<p>Дата начала работы: <%= @location.start_date %></p>
+			</div>
+			<div class="col text-center">
+				<h3>Заказчики:</h3>
+				<% @location.location_customers.each do |location_customer| %>
+				<p><%= link_to "#{location_customer.customer.name}", "../customers/#{location_customer.customer.id}"  %></p>
+				<% end %>
+				<%= link_to "Добавить заказчика", new_location_customer_path(location_id: @location.id), class: "btn btn-primary" %>
+			</div>
+		</div>
+	</div>
 
-<h3>Виды работ:</h3>
+	<h3 class="text-center" style="margin-top: 20px;">Виды работ:</h3>
+
+	<div class="container">
+		
+	</div>
+
+
+
+
 
 <% @location.location_work_types.each do |location_work_type| %>
 	<p>Название: <%= location_work_type.work_type.name %></p>
@@ -25,12 +42,12 @@
 		<p> <%= payout.payout_date %> | <%= payout.size %> злотых </p> 
 	<% end %>
 
-	<%= link_to "Добавить оплату", new_payout_path(location_work_type_id: location_work_type.id) %>	
+	<%= link_to "Добавить оплату", new_payout_path(location_work_type_id: location_work_type.id), class: "btn btn-primary" %>	
 	<p>----------------------------------------------------------</p>
 <% end %>
 
 
-<%= link_to "Добавить вид работ", new_location_work_type_path(location_id: @location.id) %>
+<%= link_to "Добавить вид работ", new_location_work_type_path(location_id: @location.id), class: "btn btn-primary" %>
 
 <h4>Закупленные материалы:</h4>
 	
@@ -42,4 +59,53 @@
 		<p>Комментарий: <%= location_material.description %> </p>
 	<% end %>
 
-	<%= link_to "Добавить материалы", new_location_material_path(location_id: @location.id) %>	
+	<%= link_to "Добавить материалы", new_location_material_path(location_id: @location.id), class: "btn btn-primary" %>	
+
+</div>
+
+<script type="text/javascript">
+	var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+var collapseList = collapseElementList.map(function (collapseEl) {
+  return new bootstrap.Collapse(collapseEl)
+})
+
+</script>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
