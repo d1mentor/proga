@@ -1,26 +1,28 @@
-<h1>Работники</h1>
+<h1>Работники <%= link_to "Добавить нового работника", new_worker_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить нового работника", new_worker_path %>
-
-<% @workers.each do |worker| %>
-	<h1><%= worker.id %></h1>
-	ФИО работника: <%= worker.name %>
-	<br>	
-	Должность работника: <%= worker.position %>
-	<br>
-	Номер телефона работника: <%= worker.phone %>
-	<br>
-	EMAIL работника: <%= worker.email %>
-	<br>
-	статус работника: <%= worker.status %>
-	<br>
-	Навыки работника: <%= worker.skills %>
-	<br>
-	Ставка: <%= worker.rate %> злотых в час
-	<br>
-	Адрес проживания работника: <%= worker.adress %>
-	<br>
-	<%= link_to "Подробнее", "workers/#{worker.id}" %>
-	<p>------------------------------------------------------------</p>
-<% end %>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Должность</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @workers.each do |worker| %>
+    <tr>
+      <th scope="row"><%= worker.id %></th>
+      <td><%= worker.name %></td>
+      <td><%= worker.position %></td>
+      <td><%= worker.phone %></td>
+      <td><%= worker.email %></td>
+      <td><%= worker.adress %></td>
+      <td><%= link_to "Подробнее", "workers/#{worker.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

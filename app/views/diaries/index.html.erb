@@ -1,20 +1,79 @@
-<h1>Дневник</h1>
-<%= link_to "Добавить новую запись", new_diary_path %>
+<h1>Дневник <%= link_to "Добавить новую запись", new_diary_path, class: "btn btn-primary" %></h1>
+<br>
 
-<% @diaries.each do |diary| %>
-	<h1><%= diary.id %></h1>
-	Название объекта: <%= diary.location_work_type.location.name %>
-	<br>
-	Работник: <%= diary.worker.name %>
-	<br>
-	Отработал часов: <%= diary.time %>
-	<br>
-	<% if diary.accord %>
-	<p>Работал на аккорд</p>
-	<% else %>
-	<p>Работал на почасовку</p>
-	<% end %>
-	Сделал: <%= diary.size %> <%= diary.location_work_type.work_type.dimension %> <%= diary.location_work_type.work_type.name %>
-	<br>	
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Обьект</th>
+      <th scope="col">Работник</th>
+      <th scope="col">Часы</th>
+      <th scope="col">Аккорд?</th>
+      <th scope="col">Дата</th>
+      <th scope="col">Выполнил</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  	<% @diaries.each do |diary| %>
+    <tr>
+      <td><%= diary.location_work_type.location.name %></td>
+      <td><%= diary.worker.name %></th>
+      <td><%= diary.time %></td>
+      	<% if diary.accord %>
+      		<td>+</td>
+      	<% else %>	
+      		<td>-</td>
+      	<% end %>
+      <td name="date"><%= diary.diary_date %></td>
+      <td><%= diary.size %> <%= diary.location_work_type.work_type.dimension %> <%= diary.location_work_type.work_type.name %></td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
+
+<div style="margin-top: 20px" class="container">
+	<h4 class="">Выбрать диапазон отображения записей</h4>
+	<input type="date" id="start_diap">
+	<input type="date" id="stop_diap">
+	<button class="btn btn-primary" onclick="show()">Показать</button>
+</div>
+
+<style type="text/css">
+	.not-show{
+		border: 0;
+    	clip: rect(0 0 0 0);
+    	height: 1px;
+    	margin: -1px;
+    	overflow: hidden;
+    	padding: 0;
+    	position: absolute;
+    	white-space: nowrap;
+    	width: 1px;
+	}
+</style>
+
+<script type="text/javascript">
+	function costil(str){
+		const [year, month, day] = str.value.split('-');
+		return new Date(year, month-1, day).getTime() / 1000;
+	}
+
+	function costil2(str){
+		const [year, month, day] = str.innerHTML.split('-');
+		return new Date(year, month-1, day).getTime() / 1000;
+	}
+
+	function show() {
+		var tds = document.getElementsByName("date");
+		var start = document.getElementById("start_diap");
+		var stop = document.getElementById("stop_diap");
+		var start_date = costil(start);
+		var stop_date = costil(stop);
+		tds.forEach((elem) => {
+			if(costil2(elem) <= start_date || costil2(elem) >= stop_date) {
+				elem.parentElement.classList.add("not-show");
+			}
+		})
+	};
+</script>
 

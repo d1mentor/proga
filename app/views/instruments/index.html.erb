@@ -1,20 +1,27 @@
-<h1>Инструменты</h1>
+<h1>Инструменты <%= link_to "Добавить новый инструмент", new_instrument_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить новый инструмент", new_instrument_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Модель</th>
+      <th scope="col">Дата покупки</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @instruments.each do |instrument| %>
+    <tr>
+      <th scope="row"><%= instrument.id %></th>
+      <td><%= instrument.name %></td>
+      <td><%= instrument.description %></td>
+      <td><%= instrument.buy_date %></td>
+      <td><%= instrument.price %> zl</td>
+      <td><%= link_to "Подробнее", "instruments/#{instrument.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @instruments.each do |instrument| %>
-	<h1><%= instrument.id %></h1>
-	Название инструмента: <%= instrument.name %>
-	<br>
-	Модель: <%= instrument.description %>
-	<br>
-	Дата покупки: <%= instrument.buy_date %>
-	<br>
-	Цена: <%= instrument.price %>
-	<br>
-	Сейчас на обьекте: <%= instrument.location.name %>
-	<br>
-	Сейчас у работника: <%= instrument.worker.name %>
-	<br>
-		
-<% end %>

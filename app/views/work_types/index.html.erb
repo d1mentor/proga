@@ -1,13 +1,24 @@
-<h1>Виды работ</h1>
+<h1>Виды работ <%= link_to "Добавить новый вид работ", new_work_type_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить новый вид работ", new_work_type_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Мера</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @work_types.each do |work_type| %>
+    <tr>
+      <th scope="row"><%= work_type.id %></th>
+      <td><%= work_type.name %></td>
+      <td><%= work_type.dimension %></td>
+      <td><%= link_to "Подробнее", "work_types/#{work_type.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @work_types.each do |work_type| %>
-	<h1><%= work_type.id %></h1>
-	Название: <%= work_type.name %>
-	<br>	
-	Измеряется в: <%= work_type.dimension %>
-	<br>
-	<p>------------------------------------------------------------</p>
-<% end %>
 

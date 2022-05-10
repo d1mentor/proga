@@ -1,19 +1,28 @@
-<h1>Заказчики</h1>
+<h1>Заказчики <%= link_to "Добавить нового заказчика", new_customer_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить нового заказчика", new_customer_path %>
-
-<% @customers.each do |customer| %>
-	<h1><%= customer.id %></h1>
-	ФИО заказчика: <%= customer.name %>
-	<br>	
-	Фирма которую представляет заказчик: <%= customer.company %>
-	<br>
-	Должность заказчика: <%= customer.position %>
-	<br>
-	Номер телефона заказчика: <%= customer.phone %>
-	<br>
-	EMAIL заказчика: <%= customer.email %>
-	<br>
-	
-	<p>------------------------------------------------------------</p>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Фирма</th>
+      <th scope="col">Должность</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @customers.each do |customer| %>
+    <tr>
+      <th scope="row"><%= customer.id %></th>
+      <td><%= customer.name %></td>
+      <td><%= customer.company %></td>
+      <td><%= customer.position %></td>
+      <td><%= customer.phone %></td>
+      <td><%= customer.email %></td>
+      <td><%= link_to "Подробнее", "customers/#{customer.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

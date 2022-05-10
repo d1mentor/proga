@@ -1,15 +1,26 @@
 <h1>Зарплаты</h1>
 
-<% @salaries.each do |salary| %>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Получатель</th>
+      <th scope="col">Сумма</th>
+      <th scope="col">Дата выплаты</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @salaries.each do |salary| %>
 	<% if salary.id != 1 %>
-
-	Работник: <%= salary.worker.name %>
-	<br>
-	Выплачено: <%= salary.size %>
-	<br>
-	Дата выплаты: <%= salary.salary_date %>
-	<br>	
-	<p>----------------------------------------</p>
-	<% end %>
-<% end %>
+    <tr>
+      <th scope="row"><%= salary.id-1 %></th>
+      <td><%= salary.worker.name %></td>
+      <td><%= salary.size %> zl</td>
+      <td><%= salary.salary_date %></td>
+      <td><%= link_to "Подробнее", "salaries/#{salary.id}" %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

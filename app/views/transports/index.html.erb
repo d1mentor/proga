@@ -1,16 +1,30 @@
-<h1>Транспорт</h1>
+<h1>Транспорт <%= link_to "Добавить новый Транспорт", new_transport_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить новый Транспорт", new_transport_path %>
-
-<% @transports.each do |transport| %>
-	<h1><%= transport.id %></h1>
-	Название транспорта: <%= transport.name %>
-	<br>
-	Модель: <%= transport.description %>
-	<br>
-	Дата последнего ТО: <%= transport.to_date %>
-	<br>
-	Страховка действительна до: <%= transport.insurance_date %>
-	<br>
-		
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Модель</th>
+      <th scope="col">Дата покупки</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Страховка до</th>
+      <th scope="col">Дата ТО</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @transports.each do |transport| %>
+    <tr>
+      <th scope="row"><%= transport.id %></th>
+      <td><%= transport.name %></td>
+      <td><%= transport.description %></td>
+      <td><%= transport.buy_date %></td>
+      <td><%= transport.price %> zl</td>
+      <td><%= transport.insurance_date %></td>
+      <td><%= transport.to_date %></td>
+      <td><%= link_to "Подробнее", "transports/#{transport.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

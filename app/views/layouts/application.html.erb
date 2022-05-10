@@ -38,7 +38,7 @@
     </div>
 
     <% if user_signed_in? %>
-    <p class="text-center">Текущий пользователь: <%= current_user.email %></p>
+    <p class="text-center">Текущий пользователь: <%= current_user.email %> <%= link_to "Выйти", destroy_user_session_path, :method => :delete %></p>
     <% end %>
     <div class="container" style="margin-top: 50px;">
       <%= yield %>

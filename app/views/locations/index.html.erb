@@ -1,14 +1,24 @@
-<h1>Объекты</h1>
+<h1>Объекты <%= link_to "Добавить новый объект", new_location_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить новый объект", new_location_path %>
-
-<% @locations.each do |location| %>
-	<h1><%= location.id %></h1>
-	Название объекта: <%= location.name %>
-	<br>
-	Адрес объекта: <%= location.adress %>
-	<br>
-	Дата начала работы: <%= location.start_date %>
-	<br>	
-	<%= link_to "Подробнее", "locations/#{location.id}" %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">Дата начала</th>
+      <th scope="col">Просмотр</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @locations.each do |location| %>
+    <tr>
+      <th scope="row"><%= location.id %></th>
+      <td><%= location.name %></td>
+      <td><%= location.adress %></td>
+      <td><%= location.start_date %></td>
+      <td><%= link_to "Подробнее", "locations/#{location.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

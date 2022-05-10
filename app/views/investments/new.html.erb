@@ -1,2 +1,14 @@
-<h1>Investments#new</h1>
-<p>Find me in app/views/investments/new.html.erb</p>
+<h1>Добавление нового финансового поступления</h1>
+
+<%= form_for @investment do |f| %>
+	<%= f.label :description, 'Описание', class: "form-label" %>
+	<%= f.text_field :description, class: "form-control" %>
+	<br>
+	<%= f.label :inv_date, 'Дата поступления', class: "form-label" %>
+	<%= f.date_field :inv_date, :id => "datepicker", class: "form-control" %>
+	<br>
+	<%= f.label :size, 'Объем', class: "form-label" %>
+	<%= f.text_field :size, class: "form-control" %>
+	<br>
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
+<% end %>

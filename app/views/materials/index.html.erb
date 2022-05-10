@@ -1,14 +1,22 @@
-<h1>Виды материалов</h1>
+<h1>Виды материалов <%= link_to "Добавить новый материал", new_material_path, class: "btn btn-primary" %> </h1>
 
-<%= link_to "Добавить новый материал", new_material_path %>
-
-<% @materials.each do |material| %>
-	<br>
-	<p>------------------------------------------------------------</p>
-	Наименование: <%= material.name %>
-	<br>	
-	Мера: <%= material.dimension %>
-	
-<% end %>
-
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Мера</th>
+      <th scope="col">Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @materials.each do |material| %>
+    <tr>
+      <th scope="row"><%= material.id %></th>
+      <td><%= material.name %></td>
+      <td><%= material.dimension %></td>
+      <td><%= link_to "Подробнее", "materials/#{material.id}" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
