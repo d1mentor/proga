@@ -287,6 +287,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3
   stimulus-rails
+  strscan (= 3.0.1)
   turbo-rails
   tzinfo-data
   web-console
