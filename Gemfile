@@ -20,8 +20,9 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 group :production do
   gem 'pg'
-  gem 'strscan', '3.0.1'
 end
+
+ gem 'strscan', '3.0.0'
 
 group :development do
   gem 'sqlite3'
