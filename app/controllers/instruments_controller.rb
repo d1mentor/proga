@@ -1,5 +1,6 @@
 class InstrumentsController < ApplicationController
   def show
+    @instrument = Instrument.find(params[:id])
   end
 
   def index
@@ -23,9 +24,13 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+    @instrument = Instrument.find(params[:id])
   end
 
   def update
+    @instrument = Instrument.find(params[:id])
+    @instrument.update(permit_params)
+    redirect_to(instruments_path)
   end
 
   private

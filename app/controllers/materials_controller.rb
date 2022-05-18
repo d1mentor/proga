@@ -23,9 +23,13 @@ class MaterialsController < ApplicationController
   end
 
   def edit
+    @material = Material.find(params[:id])
   end
 
   def update
+    @material = Material.find(params[:id])
+    @material.update(permit_params)
+    redirect_to(materials_path) 
   end
 
   private

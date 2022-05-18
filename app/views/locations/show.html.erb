@@ -34,7 +34,7 @@
 	<p>Цена за <%= location_work_type.work_type.dimension %>: <%= location_work_type.price %> злотых</p>
 	<p>Оплата работнику за <%= location_work_type.work_type.dimension %>: <%= location_work_type.accord_price %> злотых</p>
 	<p>Ожидаемый доход: <%= location_work_type.size.to_i*location_work_type.price.to_i %> злотых</p>
-	<p>Прогресс: <%= location_work_type.progress %>%</p>
+	<p>Прогресс: <%= location_work_type.progress - 1 %>%</p>
 	<p>Дата начала работ: <%= location_work_type.start_date %></p>
 
 	<p>Оплаты:</p>

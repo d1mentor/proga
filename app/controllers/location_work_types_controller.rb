@@ -12,7 +12,6 @@ class LocationWorkTypesController < ApplicationController
   def create
     @location_work_type = LocationWorkType.new(permit_params)
     @location_work_type.paid = false
-    @location_work_type.progress = 0
     @location_work_type.save
     redirect_to(root_path)
   end

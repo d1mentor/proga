@@ -1,2 +1,10 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<h1>Инструмент <%= @instrument.name %></h1>
+
+<p>Имя: <%= @instrument.name %></p>
+<p>Модель: <%= @instrument.description %></p>
+<p>Дата покупки: <%= @instrument.buy_date %></p>
+<p>Цена: <%= @instrument.price %>zl</p>
+<p>На объекте: <%= @instrument.location.name %></p>
+<p>У работника: <%= @instrument.worker.name %></p>
+
+<%= link_to "Редактировать", "#{@instrument.id}/edit", class: "btn btn-primary" %>

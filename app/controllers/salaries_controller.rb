@@ -17,7 +17,7 @@ class SalariesController < ApplicationController
     @salary = Salary.new(permit_params)
     @salary.save
     diaries_update(params[:diary_ids], @salary)
-    redirect_to(root_path)
+    redirect_to(salaries_path)
   end
 
   def delete
@@ -27,9 +27,14 @@ class SalariesController < ApplicationController
   end
 
   def edit
+    @salary = Salary.find(params[:id])
+    @worker = @salary.worker
   end
 
   def update
+    @salary = Salary.find(params[:id])
+    @salary.update(permit_params)
+    redirect_to(salaries_path)
   end
 
   private

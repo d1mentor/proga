@@ -1,2 +1,13 @@
-<h1>Material#edit</h1>
-<p>Find me in app/views/material/edit.html.erb</p>
+<h1>Редактирование</h1>
+
+<%= form_for @material do |f| %>
+	<%= f.label :name, 'Название материала', class: "form-label" %>
+	<%= f.text_field :name, class: "form-control", default: @material.name %>
+	<br>
+	<%= f.label :dimension, 'В чем измеряется материал?', class: "form-label" %>
+	<%= f.text_field :dimension, class: "form-control", default: @material.dimension %>
+	<br>
+
+	<%= f.submit 'Добавить', class: "btn btn-primary" %>
+<% end %>
+

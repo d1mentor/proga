@@ -1,2 +1,10 @@
-<h1>Transports#show</h1>
-<p>Find me in app/views/transports/show.html.erb</p>
+<h1>Транспорт <%= @transport.name %></h1>
+
+<p>Имя: <%= @transport.name %></p>
+<p>Модель: <%= @transport.description %></p>
+<p>Цена: <%= @transport.price %>zl</p>
+<p>Дата покупки: <%= @transport.buy_date %></p>
+<p>Дата последнего ТО: <%= @transport.to_date %></p>
+<p>Дата конца страховки: <%= @transport.insurance_date %></p>
+
+<%= link_to "Редактировать", "#{@transport.id}/edit", class: "btn btn-primary" %>

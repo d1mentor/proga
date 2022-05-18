@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_17_071520) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "diaries", force: :cascade do |t|
     t.integer "worker_id"
     t.integer "location_work_type_id"
-    t.integer "size"
+    t.integer "size", default: 0
     t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "expenditures", force: :cascade do |t|
     t.string "name"
     t.date "exp_date"
-    t.integer "price"
+    t.integer "price", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
     t.string "name"
     t.string "description"
     t.date "buy_date"
-    t.integer "price"
+    t.integer "price", default: 0
     t.integer "location_id"
     t.integer "worker_id"
     t.datetime "created_at", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "investments", force: :cascade do |t|
     t.string "description"
     t.date "inv_date"
-    t.integer "size"
+    t.integer "size", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,8 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "location_materials", force: :cascade do |t|
     t.integer "location_id"
     t.integer "material_id"
-    t.integer "count"
-    t.integer "price"
+    t.integer "count", default: 0
+    t.integer "price", default: 0
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,15 +81,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "location_work_types", force: :cascade do |t|
     t.integer "location_id"
     t.integer "work_type_id"
-    t.integer "price"
-    t.integer "progress"
+    t.integer "price", default: 0
+    t.integer "progress", default: 1
     t.date "start_date"
     t.date "finish_date"
     t.boolean "paid"
-    t.integer "size"
+    t.integer "size", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "accord_price"
+    t.integer "accord_price", default: 0
   end
 
   create_table "locations", force: :cascade do |t|
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
 
   create_table "payouts", force: :cascade do |t|
     t.integer "location_work_type_id"
-    t.integer "size"
+    t.integer "size", default: 0
     t.date "payout_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
     t.date "salary_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "size"
+    t.integer "size", default: 0
   end
 
   create_table "transports", force: :cascade do |t|
@@ -131,7 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "buy_date"
-    t.integer "price"
+    t.integer "price", default: 0
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,7 +156,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_173525) do
   create_table "workers", force: :cascade do |t|
     t.string "name"
     t.string "position"
-    t.integer "rate"
+    t.integer "rate", default: 0
     t.string "adress"
     t.string "phone"
     t.string "email"

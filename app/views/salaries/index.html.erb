@@ -18,7 +18,7 @@
       <td><%= salary.worker.name %></td>
       <td><%= salary.size %> zl</td>
       <td><%= salary.salary_date %></td>
-      <td><%= link_to "Подробнее", "salaries/#{salary.id}" %></td>
+      <td><%= link_to "Редактировать", "/salaries/#{salary.id}/edit" %></td>
     </tr>
     <% end %>
     <% end %>

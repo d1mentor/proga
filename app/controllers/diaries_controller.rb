@@ -33,9 +33,19 @@ class DiariesController < ApplicationController
   private
 
   def update_location_work_type(diary)
-    progress_percent = diary.location_work_type.size.to_f / 100
+    if diary.location_work_type.size.to_f > 0
+      progress_percent = diary.location_work_type.size.to_f / 100
+    else  
+      progress_percent = (diary.location_work_type.size.to_f + 0.1) / 100
+    end
+
     day_progress = 0.00
-    day_progress += (diary.size.to_f / progress_percent)
+
+    if diary.size.to_f > 0
+      day_progress += (diary.size.to_f / progress_percent)
+    else
+      day_progress += ((diary.size.to_f + 0.1) / progress_percent)
+    end
     current_progress = diary.location_work_type.progress + day_progress
     LocationWorkType.update(diary.location_work_type.id, :progress => "#{current_progress.to_i}")
   end

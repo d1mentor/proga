@@ -17,6 +17,8 @@
 	Адрес проживания работника: <%= @worker.adress %>
 	<br>
 
+	<%= link_to "Редактировать", "#{@worker.id}/edit", class: "btn btn-primary" %>
+
 	<p>Выписать зарплату:</p>
 
 	<%= form_tag("/salaries/new", method: :get) do%>

@@ -24,9 +24,13 @@ class WorkersController < ApplicationController
   end
 
   def edit
+    @worker = Worker.find(params[:id])
   end
 
   def update
+    @worker = Worker.find(params[:id])
+    @worker.update(permit_params)
+    redirect_to("/workers/#{@worker.id}")
   end
 
   private

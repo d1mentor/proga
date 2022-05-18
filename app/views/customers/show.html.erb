@@ -4,3 +4,5 @@
 <p>Номер телефона: <%= @customer.phone %></p>
 <p>email: <%= @customer.email %></p>
 
+<%= link_to "Редактировать", "#{@customer.id}/edit", class: "btn btn-primary" %>
+

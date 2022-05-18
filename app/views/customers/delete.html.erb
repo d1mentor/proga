@@ -1,2 +1,2 @@
-<h1>Customers#delete</h1>
-<p>Find me in app/views/customers/delete.html.erb</p>
+<h1 class="text-center">Удалить заказчика <%= @customer.name %> из базы?</h1>
+<%= link_to "УДАЛИТЬ", "/customers/#{@customer.id}", method: :delete %>

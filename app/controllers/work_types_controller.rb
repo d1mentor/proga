@@ -23,9 +23,13 @@ class WorkTypesController < ApplicationController
   end
 
   def edit
+    @work_type = WorkType.find(params[:id])
   end
 
   def update
+    @work_type = WorkType.find(params[:id])
+    @work_type.update(permit_params)
+    redirect_to(work_types_path)
   end
 
   private

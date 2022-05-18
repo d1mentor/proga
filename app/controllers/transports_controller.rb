@@ -1,5 +1,6 @@
 class TransportsController < ApplicationController
   def show
+    @transport = Transport.find(params[:id])
   end
 
   def index
@@ -23,9 +24,13 @@ class TransportsController < ApplicationController
   end
 
   def edit
+    @transport = Transport.find(params[:id])
   end
 
   def update
+    @transport = Transport.find(params[:id])
+    @transport.update(permit_params)
+    redirect_to(transports_path)
   end
 
   private
